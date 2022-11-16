@@ -75,7 +75,7 @@ modelA =function(parm){
 
 
 p_A=optim(c(0,0,1),modelA)
-cat("MLE : b0:", p_A$par[1], "b1:", p_A$par[2], "sigma:", exp(p_A$par[3]), " ")
+cat("MLE : b0:", p_A$par[1], "b1:", p_A$par[2], "b3:", exp(p_A$par[3]), " ")
 
 
 # Bayesian Information criterion= k*ln(n) -2 ln(L`)
@@ -121,7 +121,7 @@ modelB =function(parm){
 
 
 p_B=optim(c(0,0,1),modelB)
-cat("MLE : b0:", p_B$par[1], "b1:", p_B$par[2], "sigma:", exp(p_B$par[3]), " ")
+cat("MLE : b0:", p_B$par[1], "b1:", p_B$par[2], "b3:", exp(p_B$par[3]), " ")
 BIC_B = 3 * log(nrow(Insurance)) + 2 *p_B$value
 
 cat("BIC :", BIC_B)
@@ -166,7 +166,7 @@ modelc =function(parm){
 
 
 p_C=optim(c(2,2,1),modelc)
-cat("MLE : b0:", p_C$par[1], "b1:", p_C$par[2], "sigma:", exp(p_C$par[3]), " ")
+cat("MLE : b0:", p_C$par[1], "b1:", p_C$par[2], "b3:", exp(p_C$par[3]), " ")
 BIC_C = 3 * log(nrow(Insurance1)) + 2 *p_C$value
 
 cat("BIC :", BIC_C)
@@ -199,7 +199,7 @@ modeld =function(parm){
 Insurance1=Insurance[-61,]
 
 p_D=optim(c(1,1,2),modeld)
-cat("MLE : b0:", p_D$par[1], "b1:", p_D$par[2], "sigma:", exp(p_D$par[3]), " ")
+cat("MLE : b0:", p_D$par[1], "b1:", p_D$par[2], "b3:", exp(p_D$par[3]), " ")
 BIC_D = 3 * log(nrow(Insurance1)) + 2 *p_D$value
 
 cat("BIC :", BIC_D)
